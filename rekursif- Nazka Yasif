@@ -1,5 +1,4 @@
 package rekursif;
-
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.scene.Scene;
@@ -9,41 +8,40 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 public class rekursif extends Application {
     
     public static int faktorial(int parameter){
-        // Perbaiki kondisi dasar dan rekursi
-        if (parameter == 0 || parameter == 1) {
+        if (parameter == 1) {
             return 1;
         }
-        return parameter * faktorial(parameter - 1);  // Perbaikan rekursi
+        return parameter * faktorial(parameter -1);
     }
     
-    public static void main(String[] args) {
-        launch(args);
-    }
+
      
     @Override
     public void start(Stage primaryStage) {
-        Label label1 = new Label("Masukkan angka pertama:");
-        TextField input1 = new TextField();
-        Button btnFaktorial = new Button("Hitung");
-        Label hasil = new Label("Hasil: ");
+      Label label1 = new Label("masukkan angka pertama:");
+      TextField input1 = new TextField();
+      Button btnFaktorial = new Button("hitung");
+      Label hasil = new Label("hasil: ");
       
-        btnFaktorial.setOnAction(e ->{
-            try {
-                int angka1 = Integer.parseInt(input1.getText());
-                int hasilAkhir = faktorial(angka1);
-                hasil.setText("Hasilnya adalah: " + hasilAkhir);
-            } catch (NumberFormatException ex) {
-                hasil.setText("Harap masukkan angka yang valid!");
-            }
-        });
-        
-        VBox layout = new VBox(10, label1, input1, btnFaktorial, hasil);
-        Scene scene = new Scene(layout, 600, 400);
-        primaryStage.setScene(scene);       
-        primaryStage.setTitle("Menghitung Faktorial Sebuah Angka");
-        primaryStage.show();
+      
+      
+      btnFaktorial.setOnAction(e ->{
+          int angka1 = Integer.parseInt(input1.getText());
+          int hasilAkhir = faktorial(angka1);
+          hasil.setText("hasilnya adalah: "+hasilAkhir);
+      });
+      
+      
+      
+      VBox layout = new VBox(10, label1, input1, btnFaktorial, hasil);
+      Scene scene = new Scene(layout, 600, 400);
+      primaryStage.setScene(scene);       
+      primaryStage.setTitle("menghitung fakorial sebuah angka");
+      primaryStage.show();
     }
+   
 }
